@@ -1,4 +1,4 @@
-# Soundify 🎵
+# Soundify 
 
 A Spotify-inspired music streaming application built with Spring Boot and React.
 
