@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# Soundify 🎵
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Spotify-inspired music streaming application built with Spring Boot and React.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+**Backend:**
+- Java 21
+- Spring Boot 3.5
+- Spring Security + JWT
+- Spring Data JPA
+- H2 Database
+- Maven
+- Docker
 
-### `npm start`
+**Frontend:**
+- React
+- Axios
+- React Router DOM
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User registration and login with JWT authentication
+- Browse artists, albums, and songs
+- Create and manage playlists
+- Audio player with play/pause controls
+- RESTful API with proper HTTP status codes
+- Input validation and global exception handling
+- Unit tests with JUnit 5 and Mockito
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Java 21
+- Maven
+- Node.js
+- Docker (optional)
 
-### `npm run build`
+### Run Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd soundify
+mvn clean package
+java -jar target/soundify-0.0.1-SNAPSHOT.jar
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Backend runs on `http://localhost:8080`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Run Frontend
 
-### `npm run eject`
+```bash
+cd soundify-frontend
+npm install
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Frontend runs on `http://localhost:3000`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Run with Docker
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+docker build -t soundify-backend .
+docker run -p 8080:8080 soundify-backend
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## API Endpoints
 
-## Learn More
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/auth/register | Register new user |
+| POST | /api/auth/login | Login and get JWT token |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Artists
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/artists | Get all artists |
+| GET | /api/artists/{id} | Get artist by ID |
+| POST | /api/artists | Create artist |
+| DELETE | /api/artists/{id} | Delete artist |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Albums
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/albums | Get all albums |
+| GET | /api/albums/{id} | Get album by ID |
+| POST | /api/albums | Create album |
+| DELETE | /api/albums/{id} | Delete album |
 
-### Code Splitting
+### Songs
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/songs | Get all songs |
+| GET | /api/songs/{id} | Get song by ID |
+| POST | /api/songs | Create song |
+| DELETE | /api/songs/{id} | Delete song |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Playlists
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/playlists | Get all playlists |
+| GET | /api/playlists/{id} | Get playlist by ID |
+| POST | /api/playlists | Create playlist |
+| POST | /api/playlists/{id}/songs | Add song to playlist |
+| DELETE | /api/playlists/{id} | Delete playlist |
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+soundify/
+├── src/main/java/sk/adamkatrenic/
+│   ├── controller/
+│   ├── model/
+│   ├── repository/
+│   ├── service/
+│   ├── security/
+│   └── exception/
+├── src/test/
+├── Dockerfile
+└── pom.xml
 
-### Making a Progressive Web App
+soundify-frontend/
+├── src/
+│   ├── pages/
+│   │   ├── Home.js
+│   │   ├── Login.js
+│   │   └── Register.js
+│   └── api/
+│       └── axios.js
+└── package.json
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Author
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Adam Katrenic
