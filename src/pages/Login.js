@@ -43,7 +43,7 @@ function Login() {
                     Prihlásiť sa
                 </button>
                 <p style={styles.link} onClick={() => navigate('/register')}>
-                    Nemáš účet? Registruj sa
+                    Nemáš účet? Registruj sa.
                 </p>
             </div>
         </div>
