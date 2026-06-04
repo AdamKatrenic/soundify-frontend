@@ -4,7 +4,7 @@ A Spotify-inspired music streaming application built with Spring Boot and React.
 
 ## Tech Stack
 
-**Backend:**
+**Backend**
 - Java 21
 - Spring Boot 3.5
 - Spring Security + JWT
@@ -13,7 +13,7 @@ A Spotify-inspired music streaming application built with Spring Boot and React.
 - Maven
 - Docker
 
-**Frontend:**
+**Frontend**
 - React
 - Axios
 - React Router DOM
